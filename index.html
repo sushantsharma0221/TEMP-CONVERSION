@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Conversion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+        *{
+            margin: 0;padding: 0;
+        }
+        body{ 
+            background-image: url(/SEA.jpg);
+            background-size: cover;
+            background-color: rgba(27, 21, 21, 0.329);
+            background-blend-mode:color;
+            /* background-color: rgba(0, 0, 0, 0.178); */
+            display: flex;
+            justify-content: center;
+             align-items: center;
+             
+             font-family: Montserrat;
+        }
+#form{
+    height:300px;
+    width:760px;
+    background-image: url(/SEA.jpg);
+            background-size: cover;
+           
+    /* background-color: rgba(131, 129, 36, 0.829); */
+    border:3px solid white;
+    border-radius: 9px;
+    box-shadow: 6px 6px 10px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+#tempDiff{
+    margin-left: 6px;
+    width:150px;
+    height:30px;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+
+}
+#temp{
+    color:whitesmoke;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    margin-left: 10px;
+    width:150px;
+    height:30px;
+    background-color: rgba(0, 0, 0, 0.356);
+    
+}
+
+    </style>
+</head>
+<body>
+   <form id="form" onsubmit="calTemp(); return false" >
+    <label for="temp"><h4>Enter the temperature:</h4></label>
+    <br/>
+    <input type="number" name="temp" id="temp">
+    <select name="tempDiff" id="tempDiff">
+<option value="cel">°CELSIUS</option>
+<option value="fah">°FAHRENHEIT</option>
+    </select>
+    <input type="submit" name="temp" id="temp">
+    <div id='resultC'></div>
+</form>
+<script>
+
+const calTemp=()=>{
+    const numberTemp=document.getElementById('temp').value;
+    const tempSelected=document.getElementById('tempDiff');
+    const valueTemp=tempDiff.options[tempSelected.selectedIndex].value;
+    
+const celtofah=(cel)=>{
+    let fahrenheit=Math.round((cel*9/5)+32);
+    return fahrenheit;
+}
+const fahtocel=(fah)=>{
+    let celsius=Math.round((fah-32)*5/9);
+    return celsius;
+}
+let result;
+if(valueTemp=='cel'){
+    result=celtofah(numberTemp);
+    document.getElementById('resultC').innerHTML=`${result}°FAHRENHEIT`;}
+    else{
+        result=fahtocel(numberTemp);
+    document.getElementById('resultC').innerHTML=`${result}°celsius`;}
+    }
+</script>
+</body>
+</html>
